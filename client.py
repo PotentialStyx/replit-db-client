@@ -30,6 +30,9 @@ class Client():
   def all(self):
     return self.list('')
   @property
+  def all_dict(self):
+    return self.view_multiple(*self.list(''))
+  @property
   def wipe(self):
     for i in self.all:
       self.remove(i)
