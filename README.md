@@ -1,3 +1,4 @@
+!(https://repl.it/github/Codemonkey51/replit-db-client/)[run on repl button]
 # replit-db-client
 a client for repl db for python
 
