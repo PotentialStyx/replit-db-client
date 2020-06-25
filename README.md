@@ -22,4 +22,6 @@ a client for repl db for python
 `client.view(name)` returns  the value
 `client.view_multiple(name)` add more seperated by commas (returns dict)
 ##### view all keys
-`client.all` returns all key names
+`client.all` returns all key names (returns list)
+##### view all data
+`client.all_dict` (returns dict)
