@@ -1,4 +1,4 @@
-![https://repl.it/github/Codemonkey51/replit-db-client/](run on repl button)
+![run on repl button](https://repl.it/github/Codemonkey51/replit-db-client/)
 # replit-db-client
 a client for repl db for python
 
