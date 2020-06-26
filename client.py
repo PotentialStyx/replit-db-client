@@ -4,7 +4,6 @@ class Client():
   def __init__(self):
     os.system('export REPLIT_DB_URL=$REPLIT_DB_URL')
     self.url = os.environ['REPLIT_DB_URL']
-    os.system('export REPLIT_DB_URL=lol gone')
   def add(self,**args):
     keys = list(args.keys())
     for i in keys:
