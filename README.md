@@ -1,3 +1,4 @@
+[![PyPI version](https://badge.fury.io/py/replitdb.svg)](https://pypi.org/project/replitdb)
 # replit-db-client
 a client for repl db for python
 
