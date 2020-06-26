@@ -7,7 +7,9 @@ a client for repl db for python
 ### import
 `import replitdb`
 ### define the client
-`client = replitdb.Client`
+`client = replitdb.Client()`
+### use async
+`client = replitdb.AsyncClient()` (all commands same except with await before them)
 ### edit keys
 ##### adding
 `client.add(name=value)` note you can add multiple at one time just add a comma and another `name=value` (returns nothing)
