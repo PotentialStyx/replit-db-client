@@ -4,9 +4,9 @@ a client for repl db for python
 
 # docs
 ### import
-`import client`
+`import replitdb`
 ### define the client
-`client = client.Client`
+`client = replitdb.Client`
 ### edit keys
 ##### adding
 `client.add(name=value)` note you can add multiple at one time just add a comma and another `name=value` (returns nothing)
