@@ -13,17 +13,21 @@ a client for repl db for python
 ### edit keys
 ##### adding
 `client.add(name=value)` note you can add multiple at one time just add a comma and another `name=value` (returns nothing)
+`client.add_dict({key:value})` adds all the key value pairs in the passed in dict (returns nothing)
 ##### removing
 `client.remove(name)` like before just add more seperated by commas todo more (returns nothing)
+`client.remove_list([key])` removes all keys in the list passed (returns nothing)
 ##### clearing
 `client.wipe` WARNING THIS CANNOT BE UNDONE (returns nothing)
 ### viewing keys
 ##### list keys
 `client.list(prefix)` list all keys with that in the begining of there name (returns list)
 `client.list_multiple(prefix)` you can add more seperated by commas (returns dict)
+`client.list_multiple_list([key])` it works like `client.list_multiple` but takes in a list instead (returns dict)
 ##### viewing keys
-`client.view(name)` returns  the value
+`client.view(name)` returns the value
 `client.view_multiple(name)` add more seperated by commas (returns dict)
+`client.view_multiple_list([key])` it works like `client.view_multiple` but takes in a list instead (returns dict)
 ##### view all keys
 `client.all` returns all key names (returns list)
 ##### view all data
