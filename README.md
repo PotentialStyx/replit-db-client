@@ -1,4 +1,4 @@
-[![PyPI version](https://badge.fury.io/py/replitdb.svg)](https://pypi.org/project/replitdb) [![Run on Repl.it](https://repl.it/badge/github/codemonkey51/replit-db-client)](https://repl.it/github/codemonkey51/replit-db-client)
+[![PyPI version](https://badge.fury.io/py/replitdb.svg)](https://pypi.org/project/replitdb) [![Run on Repl.it](https://repl.it/badge/github/codemonkey51/replit-db-client)](https://repl.it/github/codemonkey51/replit-db-client) [![Downloads](https://pepy.tech/badge/replitdb/week)](https://pepy.tech/project/replitdb)
 # replit-db-client
 a client for repl db for python
 
