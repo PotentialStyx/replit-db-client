@@ -2,6 +2,11 @@
 # replit-db-client
 a client for repl db for python
 
+# installing
+### repl
+on repl you will need to add the package on the packager tab
+### everywhare else
+install with pip or your prefered python packager
 
 # docs
 ### import
