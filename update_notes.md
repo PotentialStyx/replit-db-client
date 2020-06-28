@@ -1,4 +1,6 @@
 # beta
+### 0.0.7
+fised list_multiple_list and view_multiple_list
 ### 0.0.6
 fixed installation errors
 ### 0.0.5
