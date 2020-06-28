@@ -59,7 +59,7 @@ class AsyncClient():
       keys.update({i:await self.view(i)})
     return keys
   async def view_multiple_list(self,view):
-    return await view_multiple(*view)
+    return await self.view_multiple(*view)
   async def list(self,item):
     request = await requests_async.get(self.url+'?prefix='+item)
     return(request.text.splitlines())
@@ -69,7 +69,7 @@ class AsyncClient():
       data.update({i:await self.list(i)})
     return(data)
   async def list_multiple_list(self,args):
-    return await list_multiple_list(*args)
+    return await self.list_multiple(*args)
   @property
   async def all(self):
     return await self.list('')
