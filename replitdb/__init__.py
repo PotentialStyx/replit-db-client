@@ -1,13 +1,26 @@
 import requests_async
 import asyncio
 import os
+def DeprecationWarning(text):
+  print(f"\033[1;31mDeprecationWarning: {text}\033[0;0m")
 class Client():
   def __init__(self,url=os.environ['REPLIT_DB_URL']):
     self.asyncclient = AsyncClient(url)
+    self.oldadd = '''def run(self,command,*args,**kwargs):
+    try:
+      return asyncio.run(command(*args,**kwargs))
+    except:
+      print('error')
+      print(f'await {command}(*{args},**{kwargs})')
+      return exec(f'asyncio.run({command}(*{args},**{kwargs}))')'''
   def add(self,**args):
-    asyncio.run(self.asyncclient.add(**args))
+    return asyncio.run(self.asyncclient.add(**args))
+  def set(self,**args):
+    return asyncio.run(self.asyncclient.set(**args))
   def add_dict(self,add):
     return(asyncio.run(self.asyncclient.add_dict(add)))
+  def set_dict(self,add):
+    return(asyncio.run(self.asyncclient.set_dict(add)))
   def remove(self,*args):
     asyncio.run(self.asyncclient.remove(*args))
   def remove_list(self,remove):
@@ -39,12 +52,18 @@ class AsyncClient():
   def __init__(self,url=os.environ['REPLIT_DB_URL']):
     self.url = url
   async def add(self,**args):
+    DeprecationWarning("add() is deprecated and will be removed in a later version use set() instead")
+    await self.set(**args)
+  async def set(self,**args):
     keys = list(args.keys())
     for i in keys:
       await requests_async.post(self.url,data={i:args.get(i)})
   async def add_dict(self,add):
-    for i in list(add.keys()):
-      await requests_async.post(self.url,data={i:add.get(i)})
+    DeprecationWarning("add_dict() is deprecated and will be removed in a later version use set_dict() instead")
+    await self.set_dict(add)
+  async def set_dict(self,set):
+    for i in list(set.keys()):
+      await requests_async.post(self.url,data={i:set.get(i)})
   async def remove(self,*args):
     for i in args:
       await requests_async.delete(self.url+'/'+i)
