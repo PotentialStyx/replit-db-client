@@ -16,17 +16,17 @@ install with pip or your prefered python packager
 ### use async
 `client = replitdb.AsyncClient()` (all commands same except with await before them)
 ### edit keys
-##### adding
-`client.add(name=value)` note you can add multiple at one time just add a comma and another `name=value` (returns nothing)
-`client.add_dict({key:value})` adds all the key value pairs in the passed in dict (returns nothing)
+##### adding/setting
+`client.set(name=value)` note you can set multiple at one time just add a comma and another `name=value` (returns nothing)
+`client.set_dict({key:value})` sets all the key value pairs in the passed in dict (returns nothing)
 ##### removing
-`client.remove(name)` like before just add more seperated by commas todo more (returns nothing)
+`client.remove(name)` like before just add more seperated by commas to do more (returns nothing)
 `client.remove_list([key])` removes all keys in the list passed (returns nothing)
 ##### clearing
 `client.wipe` WARNING THIS CANNOT BE UNDONE (returns nothing)
 ### viewing keys
 ##### list keys
-`client.list(prefix)` list all keys with that in the begining of there name (returns list)
+`client.list(prefix)` list all keys with that in the begining of their name (returns list)
 `client.list_multiple(prefix)` you can add more seperated by commas (returns dict)
 `client.list_multiple_list([key])` it works like `client.list_multiple` but takes in a list instead (returns dict)
 ##### viewing keys
@@ -37,3 +37,10 @@ install with pip or your prefered python packager
 `client.all` returns all key names (returns list)
 ##### view all data
 `client.all_dict` (returns dict)
+
+# known errors
+* cant use regualar client in async environment
+* repl doesnt auto-install
+
+# deprecated features
+`client.add()` and `client.add_dict()` have been moved to `client.set()` and `client.set_dict()`
