@@ -1,4 +1,6 @@
 # beta
+### 0.0.10
+deprecated add() and add_dict() replaced with set() and set_dict()
 ### 0.0.9
 added command line usage
 ### 0.0.8
