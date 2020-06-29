@@ -1,4 +1,8 @@
 # beta
+### 0.0.9
+added command line usage
+### 0.0.8
+only pre-releases for 0.0.9
 ### 0.0.7
 fised list_multiple_list and view_multiple_list
 ### 0.0.6
