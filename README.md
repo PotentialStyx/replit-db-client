@@ -1,46 +1,126 @@
 [![PyPI version](https://badge.fury.io/py/replitdb.svg)](https://pypi.org/project/replitdb) [![Run on Repl.it](https://repl.it/badge/github/codemonkey51/replit-db-client)](https://repl.it/github/codemonkey51/replit-db-client) [![Downloads](https://pepy.tech/badge/replitdb/week)](https://pepy.tech/project/replitdb)
-# replit-db-client
-a client for repl db for python
 
-# installing
-### repl
-on repl you will need to add the package on the packager tab
-### everywhare else
-install with pip or your prefered python packager
+## ReplitDB Client
+A Pythonic Client for use with the repl.it DataBase. Created by [Codemonkey51](https://repl.it/@codemonkey51). Documentation by [IreTheKID](https://repl.it/@irethekid).
 
-# docs
-### import
-`import replitdb`
-### define the client
-`client = replitdb.Client()`
-### use async
-`client = replitdb.AsyncClient()` (all commands same except with await before them)
-### edit keys
-##### adding/setting
-`client.set(name=value)` note you can set multiple at one time just add a comma and another `name=value` (returns nothing)
-`client.set_dict({key:value})` sets all the key value pairs in the passed in dict (returns nothing)
-##### removing
-`client.remove(name)` like before just add more seperated by commas to do more (returns nothing)
-`client.remove_list([key])` removes all keys in the list passed (returns nothing)
-##### clearing
-`client.wipe` WARNING THIS CANNOT BE UNDONE (returns nothing)
-### viewing keys
-##### list keys
-`client.list(prefix)` list all keys with that in the begining of their name (returns list)
-`client.list_multiple(prefix)` you can add more seperated by commas (returns dict)
-`client.list_multiple_list([key])` it works like `client.list_multiple` but takes in a list instead (returns dict)
-##### viewing keys
-`client.view(name)` returns the value
-`client.view_multiple(name)` add more seperated by commas (returns dict)
-`client.view_multiple_list([key])` it works like `client.view_multiple` but takes in a list instead (returns dict)
-##### view all keys
-`client.all` returns all key names (returns list)
-##### view all data
-`client.all_dict` (returns dict)
+## Installation
+There are many different methods of installing `replitdb` to your enviornment. `pip` is recommended as it is the most stable.
 
-# known errors
-* cant use regualar client in async environment
-* repl doesnt auto-install
++ Pip: `pip install replitdb`
++ Easy Install: `easy_install replitdb`
++ Git: `$ git clone https://github.com/codemonkey51/replit-db-client replitdb`
++ Replit UPM: `python3 -m poetry init --no-interaction;
+python3 -m poetry add replitdb`
 
-# deprecated features
-`client.add()` and `client.add_dict()` have been moved to `client.set()` and `client.set_dict()`
+## Getting Started
+Once you have the package installed, simply import it and define the client to get started:
+```py
+import replitdb
+
+client = replitdb.Client()
+```
+
+## Using the Client
+The replitDB client can be used to write, delete, and edit keys/values within your database. Let's say you have your dictionary ready, like so:
+```py
+import replitdb
+
+client = replitdb.Client()
+data = {
+	"users" : {
+		"name1" : {...},
+		"name2" : {...}
+	},
+	"posts" : {
+		"post1" : {...},
+		"post2" : {...}
+	},
+	"codes" : [
+		12345,
+		67890,
+	],
+	"sessionID" : "837379829-2"
+}
+```
+You can write to the DB with either:
+```py
+for key, value in data.items():
+	client.set(key=value)
+```
+or:
+```py
+client.set_dict(data)
+```
+After adding items to your DB, you may want to remove some. There are different methods to deleting values from the DB:
+```py
+client.remove("codes") # Deletes the item the key "codes"
+client.remove_list(["users", "posts"]) # Deletes a list of items
+
+client.wipe() # Wipes the whole DataBase clean
+```
+
+## Client Functions
+
+### Adding:
++ `client.set(name=value, name2=value2, ...)` Adds an item with it's name and value.
++ `client.set_dict({key:val})` Adds an item for every key/value pair in the dict.
+
+### Removing:
++ `client.remove(name)` Removes an item by its name.
++ `client.remove_list([key])` Removes a list of items by name.
++ `client.wipe()` Clears DB. (Caution: **Cannot Be Undone**)
+
+### Viewing:
++ `client.view(name)` Returns the value of the name.
++ `client.view_multiple(name, name2, ...)` Returns a dictionary with each item being the name/value pair found.
++ `client.view_multiple_list([key])` Returns a dictionary with each item being the key/value pair found in the list.
++ `client.all()` Returns all key names.
++ `client.all_dict()` Returns the entire DB as a dictionary.
+
+### Searching:
++ `client.list(prefix)` Returns lists of all keys found that start with the prefix.
++ `client.list_multiple(prefix, prefix2, ...)` Returns dict with each item being the prefix/key pair for all keys found that start each prefix.
++ `client.list_multiple_list([prefix])` Returns dict with each item being the prefix/key pair for all keys found that start each prefix in the list passed.
+
+## Async Capabilities
+
+You can use asynchronous functions by defining your client with the `AsyncClient()` class. Here are two examples:
+
+```py
+import asyncio
+import replitdb
+
+client = AsyncClient()
+loop = asyncio.get_event_loop()
+
+data = {
+	...
+}
+
+loop.run_until_complete(client.set_dict(data))
+```
+
+```py
+import asyncio
+import replitdb
+
+client = AsyncClient()
+
+data = {
+	...
+} 
+
+async def foo():
+	await client.set_dict(data)
+
+asyncio.run(foo())
+```
+
+## Known Issues
+
++ Repl.it UPM can't auto-detect package import.
++ Defualt client does not work in asynchronous enviornment.
+
+## Deprecated Functions
++ `client.add(name)` is now `client.set(name)`
++ `client.add_dict({key:val})` is now `client.set_dict({key:val})`
