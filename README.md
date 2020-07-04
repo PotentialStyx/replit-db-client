@@ -68,14 +68,14 @@ client.wipe() # Wipes the whole DataBase clean
 ### Removing:
 + `client.remove(name)` Removes an item by its name.
 + `client.remove_list([key])` Removes a list of items by name.
-+ `client.wipe()` Clears DB. (Caution: **Cannot Be Undone**)
++ `client.wipe` Clears DB. (Caution: **Cannot Be Undone**)
 
 ### Viewing:
 + `client.view(name)` Returns the value of the name.
 + `client.view_multiple(name, name2, ...)` Returns a dictionary with each item being the name/value pair found.
 + `client.view_multiple_list([key])` Returns a dictionary with each item being the key/value pair found in the list.
-+ `client.all()` Returns all key names.
-+ `client.all_dict()` Returns the entire DB as a dictionary.
++ `client.all` Returns all key names.
++ `client.all_dict` Returns the entire DB as a dictionary.
 
 ### Searching:
 + `client.list(prefix)` Returns lists of all keys found that start with the prefix.
