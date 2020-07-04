@@ -17,7 +17,7 @@ def main():
     try:
       replitdb.commands.commandHandler(args,setUrl)
     except IndexError:
-      print('Too little arguments entered (requesrs at leat 2)')
+      print('Too little arguments entered (requires at leat 2)')
 
 
 if __name__ == '__main__':
