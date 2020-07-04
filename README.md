@@ -45,18 +45,20 @@ data = {
 You can write to the DB with either:
 ```py
 for key, value in data.items():
-	client.set(key=value) #editors note: that will set 'key' to the var value you can fix this by using client.set_dict({key:value})
+	client.set(key=value) 
 ```
 or:
 ```py
 client.set_dict(data)
 ```
+**Editor's Note:** Using the for loop will set 'key' equal to the variable value. Using `client.set_dict({key:value})` is recommended instead.
+
 After adding items to your DB, you may want to remove some. There are different methods to deleting values from the DB:
 ```py
 client.remove("codes") # Deletes the item the key "codes"
 client.remove_list(["users", "posts"]) # Deletes a list of items
 
-client.wipe # Wipes the whole DataBase clean
+client.wipe() # Wipes the whole DataBase clean
 ```
 
 ## Client Functions
@@ -84,7 +86,7 @@ client.wipe # Wipes the whole DataBase clean
 
 ## Async Capabilities
 
-You can use asynchronous functions by defining your client with the `AsyncClient()` class. Here are two examples:
+You can use asynchronous functions by defining your client with the `AsyncClient()` class. All functions will become coroutines that need to be awaited. Here are two examples:
 
 ```py
 import asyncio
