@@ -45,7 +45,7 @@ data = {
 You can write to the DB with either:
 ```py
 for key, value in data.items():
-	client.set(key=value)
+	client.set(key=value) #editors note: that will set 'key' to the var value you can fix this by using client.set_dict({key:value})
 ```
 or:
 ```py
@@ -56,7 +56,7 @@ After adding items to your DB, you may want to remove some. There are different 
 client.remove("codes") # Deletes the item the key "codes"
 client.remove_list(["users", "posts"]) # Deletes a list of items
 
-client.wipe() # Wipes the whole DataBase clean
+client.wipe # Wipes the whole DataBase clean
 ```
 
 ## Client Functions
