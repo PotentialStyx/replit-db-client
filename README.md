@@ -58,7 +58,7 @@ After adding items to your DB, you may want to remove some. There are different 
 client.remove("codes") # Deletes the item the key "codes"
 client.remove_list(["users", "posts"]) # Deletes a list of items
 
-client.wipe() # Wipes the whole DataBase clean
+client.wipe # Wipes the whole DataBase clean
 ```
 
 ## Client Functions
