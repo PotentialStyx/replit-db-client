@@ -111,7 +111,7 @@ class AsyncClient():
           if(isinstance(t2,str)):
             t = t2
           else:
-            t = json.dumps(t2)
+            t = str(json.dumps(t2))
           await requests_async.post(self.url, data={i:t})
     async def add_dict(self, add):
         DeprecationWarning(
@@ -120,7 +120,7 @@ class AsyncClient():
         await self.set_dict(add)
     async def set_dict(self, set):
         for i in list(set.keys()):
-            await requests_async.post(self.url, data={i: set.get(i)})
+            await self.set(**set)
     async def remove(self, *args):
         for i in args:
             await requests_async.delete(self.url + '/' + i)
@@ -190,4 +190,3 @@ class AsyncClient():
     async def wipe(self):
         for i in await self.all:
             await self.remove(i)
-print('imported')
