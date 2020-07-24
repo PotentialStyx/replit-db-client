@@ -73,11 +73,19 @@ client.wipe # Wipes the whole DataBase clean
 + `client.wipe` Clears DB. (Caution: **Cannot Be Undone**)
 
 ### Viewing:
-+ `client.view(name)` Returns the value of the name.
-+ `client.view_multiple(name, name2, ...)` Returns a dictionary with each item being the name/value pair found.
-+ `client.view_multiple_list([key])` Returns a dictionary with each item being the key/value pair found in the list.
++ `client.view(name)` Returns the value of the name (tries to detect if it is a str or ddict/list and returns accordingly).
++ `client.view_multiple(name, name2, ...)` Returns a dictionary with each item being the name/value pair found (tries to detect if it is a str or ddict/list and returns accordingly).
++ `client.view_multiple_list([key])` Returns a dictionary with each item being the key/value pair found in the list (tries to detect if it is a str or ddict/list and returns accordingly).
 + `client.all` Returns all key names.
 + `client.all_dict` Returns the entire DB as a dictionary.
+
+### Viewing internals (async only) (recommended not to call directly)
++ `client._view_str(name)` Returns the value of the name as a string.
++ `client._view_str_multiple(name, name2, ...)` Returns a dictionary with each item being the name/value pair as a string found.
++ `client._view_str_multiple_list([key])` Returns a dictionary with each item being the key/value pair found as a string in the list.
++ `client._view_json(name)` Returns the value of the name json decoded.
++ `client._view_json_multiple(name, name2, ...)` Returns a dictionary with each item being the name/value pair json decoded found json decoded.
++ `client._view_json_multiple_list([key])` Returns a dictionary with each item being the key/value pair json decoded found in the list.
 
 ### Searching:
 + `client.list(prefix)` Returns lists of all keys found that start with the prefix.
