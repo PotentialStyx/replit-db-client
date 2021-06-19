@@ -1,4 +1,4 @@
-# This package has archived, I recommend you use the offical replit db client, which can be found [here](https://pypi.org/p/replit).
+# This package has been deprecated, I recommend you use the offical replit db client which can be found [here](https://pypi.org/p/replit).
 
 [![PyPI version](https://badge.fury.io/py/replitdb.svg)](https://pypi.org/project/replitdb) [![Run on Repl.it](https://repl.it/badge/github/codemonkey51/replit-db-client)](https://repl.it/github/codemonkey51/replit-db-client) [![Downloads](https://pepy.tech/badge/replitdb/week)](https://pepy.tech/project/replitdb)
 
